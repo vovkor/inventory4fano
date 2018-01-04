@@ -1,0 +1,66 @@
+<!-- http://getbootstrap.com/css/   -->
+<div class="container">
+ <div>
+ 
+ </div> 
+<div *ngIf="acc">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <td>
+         <h4>{{acc.accename_rus}} </h4>
+        </td> <button (click)="gotoAccs()" class="btn btn-primary">Назад</button>   
+      </tr>
+    </thead>
+      <tr><td>Номер образца:</td><td>{{acc.accenumb}}</td></tr>
+      <tr><td>Номер сбора:</td><td>{{acc.collmunb}}</td></tr>
+      <tr><td>Институт, производивший сбор:</td><td>{{acc.collcode}}</td></tr>
+      <tr><td>Экспедиция:</td><td>{{acc.expedition}}</td></tr>
+      <tr><td>Название культуры:</td><td>{{acc.cropname}}</td></tr>
+      <tr><td>Род:</td><td>{{acc.genus}}</td></tr>
+      <tr><td>Вид:</td><td>{{acc.species}}</td></tr>
+      <tr><td>Автор вида:</td><td>{{acc.spauthor}}</td></tr>
+      <tr><td>Подвид:</td><td>{{acc.subtaxa}}</td></tr>
+      <tr><td>Автор подвида:</td><td>{{acc.subtauthor}}</td></tr>
+      <tr><td>Название образца:</td><td>{{acc.accename}}</td></tr>
+      <tr><td>Русское название образца:</td><td>{{acc.accename_rus}}</td></tr>
+      <tr><td>Дата включения в каталог:</td><td>{{acc.acqdate}}</td></tr>
+      <tr><td>Страна происхождения:</td><td>{{acc.origcty}}</td></tr>
+      <tr><td>Местонахождение места сбора:</td><td>{{acc.collsite}}</td></tr>
+      <tr><td>Местонахождение места сбора на русском:</td><td>{{acc.collsite_rus}}</td></tr>
+      <tr><td>Широта места сбора:</td><td>{{acc.latitude}}</td></tr>
+      <tr><td>Долгота места сбора:</td><td>{{acc.longitude}}</td></tr>
+      <tr><td>Высота места сбора:</td><td>{{acc.elevation}}</td></tr>
+      <tr><td>Дата сбора образца:</td><td>{{acc.colldate}}</td></tr>
+      <tr><td>Институт–селекционер:</td><td>{{acc.bredcode}}</td></tr>
+      <tr><td>Биологический статус образца:</td><td>{{acc.sampstat}}</td></tr>
+      <tr><td>Генеалогия:</td><td>{{acc.ancest}}</td></tr>
+      <tr><td>Генеалогия на русском:</td><td>{{acc.ancest_rus}}</td></tr>
+      <tr><td>Источник сбора/получения:</td><td>{{acc.collsrc}}</td></tr>
+      <tr><td>Страна-донор:</td><td>{{acc.doncty}}</td></tr>
+      <tr><td>Институт-донор:</td><td>{{acc.donorcode}}</td></tr>
+      <tr><td>Номер образца, присвоенный донором:</td><td>{{acc.donornumb}}</td></tr>
+      <tr><td>Другие идентификации (номера), связанные с образцом:</td><td>{{acc.othernumb}}</td></tr>
+      <tr><td>Местонахождение страховых дублетов:</td><td>{{acc.duplsite}}</td></tr>
+      <tr><td>Тип хранения образца:</td><td>{{acc.storage}}</td></tr>
+      <tr><td>Тип развития:</td><td>{{acc.lifform}}</td></tr>
+      <tr><td>Интродукционный номер:</td><td>{{acc.intrnumb}}</td></tr>
+      <tr><td>Примечание:</td><td>{{acc.remarks}}</td></tr>
+      <tr><td>Дата импорта:</td><td>{{acc.created_date}}</td></tr>
+      <tr><td>id:</td><td>{{acc.id}}</td></tr>
+      <tr><td>owner:</td><td>{{acc.owner}}</td></tr>
+    </table>
+ <!--  <div class="row">
+    <div class="col-md-3">Номер образца:</div><div class="col-md-3">{{acc.accenumb}}</div>
+  </div>  -->
+  
+ <!-- <div>
+    <label>name: </label>
+    <input [(ngModel)]="acc.accenumb" placeholder="accenumb" />
+  </div> -->
+
+  
+  <button (click)="gotoAccs()" class="btn btn-primary">Назад</button>
+
+</div>
+</div>

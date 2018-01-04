@@ -1,0 +1,145 @@
+<!-- bootstrap элементы есть здесь https://ng-bootstrap.github.io/#/components/accordion  но я не ставил! 
+http://getbootstrap.com/css/   
+
+для Pagination поставил ngx-bootstrap
+https://www.npmjs.com/package/ng2-bootstrap   http://valor-software.com/ngx-bootstrap/#/pagination 
+
+-->
+
+ 
+    <div class="row">
+      <div class="col-md-3">
+        &nbsp;  
+      </div> 
+      <div class="col-md-5">
+        <upload-file>...</upload-file> 
+      </div>  
+      <div class="col-md-2">
+        <button (click)="save()" class="btn btn-primary">Загрузить из файла</button>
+      </div>  
+      <div class="col-md-1">
+        <button (click)="deleteAccessions()" class="btn btn-danger">Удалить</button>
+      </div>   
+      <div class="col-md-1">
+          <!-- аттрибут name обязателен при использовании ngModel внутри формы -->
+          <input [(ngModel)]="countRec" (change)="editCountRec()" name="countRecords" >
+      </div>           
+    </div>
+<form  class="form-inline"> <!-- может form не нужен? -->
+  <div class="row">
+    <div class="col-md-1">
+      <h3> &nbsp; </h3>
+    </div> 
+    <div  *ngIf="selectedAcc" class="col-md-6">
+      <h3>
+       № {{selectedAcc.accenumb}}  &nbsp; {{selectedAcc.accename_rus | uppercase}}
+     </h3> 
+    </div> 
+  </div> 
+</form>
+<!--
+<acc-child *ngFor="let acc of accs"
+     [acc]="acc"
+     [countAcc]="countAccStr">
+</acc-child>
+ -->
+<div > <!-- class="container" -->
+<table class="table table-striped table-condensed">
+
+  <tr>
+      <th >№</th>
+      <th>Номер по каталогу</th>
+      <th>Род</th>
+      <th>Вид</th>
+      <th>Подвид</th>
+      <th>Название</th>
+      <th>Страна сбора</th>
+      <th>Дата сбора</th>
+  </tr>   
+  <!--<h2>{{accs.length}}</h2> 
+  [class.selected]="acc === selectedAcc"
+  -->               
+  <tr *ngFor="let acc of accs; let i = index"
+   [class.selected]="isSelected(acc)"
+      (click)="onSelect(acc)"
+      (dblclick)="gotoDetail()"
+  >
+    <template [ngIf]="acc.owner == checkUsername()">
+      <td >{{i + 1}}</td>
+      <td>{{acc.accenumb}}</td>
+      <td>{{acc.genus}}</td>
+      <td>{{acc.species}}</td>
+      <td>{{acc.subtaxa}}</td>
+      <td>{{acc.accename_rus}}</td>
+      <td>{{acc.origcty}}</td>
+      <td>{{acc.acqdate}}</td>
+      <!-- <td><button (click)="gotoDetail()">Подробно..</button></td> -->
+    </template>
+  </tr> 
+<!-- Установил ngx-bootstrap  -->
+
+
+ <tr><td colspan="7"> 
+  <pagination [directionLinks]="true" [boundaryLinks]="true" [totalItems]="totalItems" 
+              [itemsPerPage]='ItemsPerPage'
+              [nextText]="nextTextRus"
+              [previousText]="previousTextRus"
+              [firstText]="firstTextRus"
+              [lastText]="lastTextRus"
+              (numPages)="smallnumPages = $event"
+              (pageChanged)="buildPageContents($event);"
+              [(ngModel)]="currentPage"></pagination>
+
+<!-- <pre class="card card-block card-header">Страница: {{currentPage}}/{{smallnumPages}}</pre> -->     
+ </td></tr>
+ 
+ <!--
+ <button type="button" class="btn btn-info" (click)="setPage(2)">перейти на стр 2</button>
+ <button type="button" class="btn btn-default" (click)="setPage(1)">1</button>
+ 
+ <tr>
+  <pager [totalItems]="totalItems"
+         [(ngModel)]="currentPage"
+         [itemsPerPage]='ItemsPerPage'
+         (pageChanged)="pageChanged($event)"
+         pageBtnClass="btn">
+  </pager>   
+ </tr>
+ -->
+
+            
+
+</table> 
+
+</div>
+
+
+  <!-- setting the cSS class [class.selected]="hero === selectedAcc" -->
+        
+<!--
+  <h3> {{title}} </h3>
+  <h2>список</h2>
+  <ul class="accs">
+    <li *ngFor="let acc of accs" 
+      [class.selected]="acc === selectedAcc"
+      (click)="onSelect(acc)"
+    >
+      <span class="badge">{{acc.id}}</span>  {{acc.accename_rus}}
+    </li>
+  </ul>
+ -->
+
+
+ <!-- панель  --> <!-- Pipes are a good way to format strings, currency amounts, dates and other display data -->
+<!--
+<my-acc-detail [acc]="selectedAcc"></my-acc-detail>
+<div  *ngIf="selectedAcc">
+  <h3>
+    {{selectedAcc.accenumb}} {{selectedAcc.accename_rus | uppercase}}
+  </h3> 
+</div>  
+-->
+
+
+
+

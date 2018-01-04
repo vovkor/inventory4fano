@@ -1,0 +1,52 @@
+
+<div class="row">
+    <div class="col-md-9">
+     
+    </div>       
+    <div class="col-md-3">  
+      {{message}}
+    </div>
+      
+</div>    
+<div class="row">   
+  <div class="col-md-1">
+   
+  </div>
+  <div class="col-md-6">
+    <h3>Вход</h3>
+  </div>  
+</div> 
+
+<div class="row"> 
+  <div class="col-md-1">
+   
+  </div>  
+  <div class="col-md-4">
+     <div class="input-group">
+      <input [(ngModel)] ="user.username"  class="form-control" #username="ngModel" required placeholder="Пользователь">
+      <span class="input-group-btn">
+        
+        <!-- <button (click)="login()"  *ngIf="!authService.isLoggedIn" class="btn btn-primary" type="button">Войти</button> -->
+        <button (click)="login()"  *ngIf="!checkLocalStorage()" class="btn btn-primary" type="button">Войти</button>
+        <button (click)="logout()" *ngIf="checkLocalStorage()" class="btn btn-default" type="button">Выйти</button>     
+        
+      </span>      
+     </div>
+  </div>
+  <div class="col-md-7"></div>
+</div> 
+<div class="row">  &nbsp; </div>
+
+<div class="row"> 
+   <div class="col-md-6">
+   
+  </div>
+  <div class="col-md-6">
+    
+    <p>
+     
+    </p>
+  </div>
+ </div>    
+
+    

@@ -1,0 +1,25 @@
+
+<h1>{{title}}</h1>
+<!-- setting the cSS class [class.selected]="hero === selectedHero" -->
+
+<h2>Образцы</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes" 
+    [class.selected]="hero === selectedHero"
+    (click)="onSelect(hero)"
+  >
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
+
+
+<my-hero-detail [hero]="selectedHero"></my-hero-detail>
+<!-- панель  -->
+<!-- Pipes are a good way to format strings, currency amounts, dates and other display data -->
+<div *ngIf="selectedHero">
+  <h2>
+    {{selectedHero.name | uppercase}} is my hero
+  </h2>
+  <button (click)="gotoDetail()">Просмотреть</button>
+</div>
+
